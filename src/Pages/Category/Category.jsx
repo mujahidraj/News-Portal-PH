@@ -1,9 +1,48 @@
-import React from 'react';
+
+import { Suspense, useEffect, useState } from 'react';
+import { useLoaderData, useParams } from 'react-router';
+import NewsCard from '../../Components/NewsCard/NewsCard';
 
 const Category = () => {
+
+  const [categoryNews, setCategoryNews ] = useState([])
+  const { id } = useParams()
+  const newsData = useLoaderData();
+
+
+
+
+  useEffect(() => {
+
+    if(parseInt(id)===0){
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setCategoryNews(newsData)
+      return
+    }
+    else if (parseInt(id)=== 1){
+      const exactNews = newsData.filter(news => news.others.is_today_pick === true)
+     setCategoryNews(exactNews)
+     return
+    }
+    else{
+       const exactNews = newsData.filter(news => news.category_id === parseInt(id))
+    setCategoryNews(exactNews)
+    }
+
+   
+    
+  },[newsData , id])
+
+
+
   return (
     <div>
-      this is category news
+      <h2 className='font-semibold text-lg'>Top News Arround the World</h2>
+      <div className='my-3'>
+        {
+        categoryNews.map(news=><Suspense fallback={<span className="loading loading-bars loading-xl"></span>}><NewsCard key={news.id} news={news}></NewsCard></Suspense>)
+      }
+      </div>
     </div>
   );
 };
