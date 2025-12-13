@@ -1,9 +1,7 @@
 import React from 'react';
-import { CiCalendar } from "react-icons/ci"; // Clean line-style calendar icon
 
-const News = ({ items }) => {
+const SingleNews = ({items}) => {
 
-  
 
   const { title, thumbnail_url, author, category_id } =items;
 
@@ -51,4 +49,5 @@ const News = ({ items }) => {
     </div>
   );
 };
-export default News;
+
+export default SingleNews;
