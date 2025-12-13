@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../Components/Header/Header';
 import BreakingNews from '../../Components/BreakingNews/BreakingNews';
+import Navbar from '../../Components/Navbar/Navbar';
 
 const Home = () => {
   return (
@@ -11,6 +12,9 @@ const Home = () => {
           <section className='w-11/12 mx-auto'>
             <BreakingNews></BreakingNews>
           </section>
+          <nav className='w-11/12 mx-auto'>
+            <Navbar></Navbar>
+          </nav>
       </header>
 
       {/* Left aside bar */}
