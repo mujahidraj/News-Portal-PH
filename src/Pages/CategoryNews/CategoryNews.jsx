@@ -16,7 +16,7 @@ const CategoryNews = () => {
               }
              key={items.id}
              to={`/category/${items.id}`}
-             >{items.name}</NavLink>)
+             >{items.name}</NavLink> )
         }
       </div>
     </div>

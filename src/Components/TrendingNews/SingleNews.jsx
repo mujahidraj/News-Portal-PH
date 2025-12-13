@@ -1,4 +1,5 @@
 import React from 'react';
+import { CiCalendar } from 'react-icons/ci';
 
 const SingleNews = ({items}) => {
 
