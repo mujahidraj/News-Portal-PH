@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Link } from 'react-router-dom'; // <--- This was missing
 import { FaRegBookmark, FaShareAlt, FaStar, FaStarHalfAlt, FaRegStar, FaEye } from 'react-icons/fa';
 
@@ -21,7 +21,8 @@ const NewsCard = ({ news }) => {
   };
 
   return (
-    <div className="max-w-xl mx-auto bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden font-sans">
+   <Suspense fallback={<span className="loading loading-bars loading-xl"></span>}>
+     <div className="max-w-xl mx-auto bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden font-sans">
       
       {/* Header: Author Info & Actions */}
       <div className="flex justify-between items-center p-4 bg-gray-50">
@@ -102,6 +103,7 @@ const NewsCard = ({ news }) => {
         </div>
       </div>
     </div>
+   </Suspense>
   );
 };
 
