@@ -28,7 +28,7 @@ const Navbar = () => {
   </div>
   <div className="navbar-end flex flex-row gap-4">
     <img src={user} alt="" />
-    <a className="btn bg-[#403F3F] text-white">Login</a>
+    <a className="btn bg-black text-white">Login</a>
   </div>
 </div>
   );

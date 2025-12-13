@@ -8,11 +8,11 @@ const CategoryNews = () => {
   return (
     <div className=''>
       <h2 className='font-semibold text-lg'>Category</h2>
-      <div className='flex flex-col gap-3 my-3'>
+      <div className='flex md:flex-col flex-row flex-wrap gap-3 my-3'>
         {
           categories.map(items => <NavLink
              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active bg-red-500 text-white px-7  py-2 duration-200" : " px-7 py-2 hover:bg-slate-200 block duration-200"
+                isPending ? "pending" : isActive ? "active bg-red-500 text-white px-7  py-2 duration-200" : " px-7 py-2 hover:bg-slate-200 text-gray-600 duration-200"
               }
              key={items.id}
              to={`/category/${items.id}`}

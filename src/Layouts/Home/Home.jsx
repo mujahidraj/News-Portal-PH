@@ -24,19 +24,19 @@ const Home = () => {
 
      
 
-    <main className='w-11/12 mx-auto my-3 grid grid-cols-12'>
-        <aside className='col-span-3'>
+    <main className='w-11/12 mx-auto my-3 md:grid grid grid-cols-1 md:grid-cols-12'>
+        <aside className='order-2 md:order-1 md:col-span-3'>
         <LeftAside></LeftAside>
       </aside>
 
       
-      <section className='main-section col-span-6'>
+      <section className='order-1 md:order-2 main-section md:col-span-6'>
       <Outlet></Outlet>
       </section>
 
       
 
-      <aside className='col-span-3'>
+      <aside className='order-3 md:col-span-3'>
         <RightAside></RightAside>
       </aside>
     </main>
