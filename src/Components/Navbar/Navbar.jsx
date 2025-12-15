@@ -1,7 +1,10 @@
-import React from 'react';
-import user from "../../assets/user.png"
-import { NavLink } from 'react-router';
+
+import userIcon from "../../assets/user.png"
+import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../../Provider/AuthProvider';
 const Navbar = () => {
+
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
@@ -19,6 +22,7 @@ const Navbar = () => {
     </div>
     
   </div>
+  
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal font-semibold px-1">
       <li><NavLink to='/'>Home</NavLink></li>
@@ -27,8 +31,9 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end flex flex-row gap-4">
-    <img src={user} alt="" />
-    <a className="btn bg-black text-white">Login</a>
+    <img src={userIcon} alt="" />
+   
+    <Link to='/auth/login' className="btn bg-black text-white">Login</Link>
   </div>
 </div>
   );

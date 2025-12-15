@@ -3,6 +3,9 @@ import Home from "../Layouts/Home/Home";
 import HomePage from "../Pages/Home/HomePage";
 import CategoryNews from "../Pages/CategoryNews/CategoryNews";
 import Category from "../Pages/Category/Category";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
+import Auth from "../Layouts/Auth/Auth";
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +28,17 @@ export const router = createBrowserRouter([
   },
   {
     path :"/auth",
-    element : <div>Authentication</div>
+    element : <Auth></Auth>,
+    children : [
+    {
+      path:'/auth/login',
+      element : <Login></Login>
+    },
+    {
+      path : '/auth/register',
+      element : <Register></Register>
+    }
+  ]
   },
   {
     path:"/news",
