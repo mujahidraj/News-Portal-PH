@@ -4,13 +4,12 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const Register = () => {
 
-  const {createUser ,loading, user}= use(AuthContext)
+  const {createUser ,loading}= use(AuthContext)
 
   if(loading){
     return <span className="loading loading-bars loading-xs"></span>
 
   }
-  console.log(user);
   
 
   const handleOnSubmit =(event)=>{
