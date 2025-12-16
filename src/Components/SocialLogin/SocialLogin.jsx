@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { use } from 'react';
 import { FcGoogle } from "react-icons/fc";
 
 import { FaGithubSquare } from "react-icons/fa";
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const SocialLogin = () => {
+
+  const {googleSignUp} = use(AuthContext)
+
+  const handleGoogleLogin =()=>{
+    googleSignUp()
+  }
+
   return (
     <div>
       <h2 className='font-semibold text-lg '>Login With</h2>
       <div className='flex flex-col gap-3 my-3'>
         {/* Google */}
-        <button className="btn bg-white text-black w-11/12 border-[#e5e5e5]">
+        <button onClick={handleGoogleLogin} className="btn bg-white text-black w-11/12 border-[#e5e5e5]">
        <FcGoogle size={24} />
 
           Login with Google
