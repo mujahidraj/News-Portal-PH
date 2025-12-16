@@ -1,13 +1,13 @@
 import React, { use, useState} from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
-import { Eye, EyeOffIcon } from 'lucide-react';
+
 
 const Register = () => {
   const navigate = useNavigate()
   const {createUser ,loading , userUpdate,user , setUser}= use(AuthContext)
   const [passwordErr , setPasswordErr] = useState('');
-  const [show , setShow] = useState(false)
+
   
   if(loading){
     return <span className="loading loading-bars loading-xs"></span>
@@ -53,9 +53,7 @@ const Register = () => {
     
 
   }
-  const handleShow =()=>{
-    setShow(true)
-  }
+ 
 
   return (
     <div className="bg-base-200">
@@ -72,8 +70,7 @@ const Register = () => {
           <input type="email" className="input" name='email' required placeholder="Email" />
           <label className="label">Password</label>
           <div className='flex relative'>
-            <input type={show ? "text" : "password"} className="input" name='password' required placeholder="Password" />
-            <button onClick={handleShow} className='absolute -right-3 top-2'>{show ? <Eye></Eye> : <EyeOffIcon></EyeOffIcon>}</button>
+            <input type= "password" className="input" name='password' required placeholder="Password" />
           </div>
           
           <button type='submit' className="btn btn-neutral mt-4">Login</button>
