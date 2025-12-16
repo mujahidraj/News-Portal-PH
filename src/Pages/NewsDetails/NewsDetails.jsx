@@ -3,6 +3,7 @@ import Header from '../../Components/Header/Header';
 import RightAside from '../../Components/RightAside/RightAside';
 import { useLoaderData, useParams } from 'react-router';
 import NewsDetailsCard from '../../Components/NewsDetailsCard/NewsDetailsCard';
+import Navbar from '../../Components/Navbar/Navbar';
 
 const NewsDetails = () => {
 
@@ -21,8 +22,9 @@ const NewsDetails = () => {
   
   return (
     <div>
-      <header>
+      <header className='w-11/12 mx-auto'>
         <Header></Header>
+        <Navbar></Navbar>
       </header>
       <main className='w-11/12 mx-auto grid my-10 grid-cols-4'>
         <section className='col-span-3'>

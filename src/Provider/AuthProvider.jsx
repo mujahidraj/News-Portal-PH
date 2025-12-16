@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../Firebase/Firebase.config';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -41,13 +41,19 @@ const AuthProvider = ({children}) => {
     return signInWithEmailAndPassword(auth , email, password)
   }
 
+  const userUpdate =(updatedUser)=>{
+    return updateProfile(auth.currentUser , updatedUser)
+  }
+
 
   const authData = {
     user,
+    setUser,
     loading,
     createUser,
     signOutUser,
-    loginUser
+    loginUser,
+    userUpdate
 
   }
 

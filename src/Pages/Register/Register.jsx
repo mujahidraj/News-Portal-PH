@@ -1,11 +1,14 @@
-import React, { use} from 'react';
-import { Link } from 'react-router';
+import React, { use, useState} from 'react';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { Eye, EyeOffIcon } from 'lucide-react';
 
 const Register = () => {
-
-  const {createUser ,loading}= use(AuthContext)
-
+  const navigate = useNavigate()
+  const {createUser ,loading , userUpdate,user , setUser}= use(AuthContext)
+  const [passwordErr , setPasswordErr] = useState('');
+  const [show , setShow] = useState(false)
+  
   if(loading){
     return <span className="loading loading-bars loading-xs"></span>
 
@@ -19,12 +22,41 @@ const Register = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
 
+    const regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if(regexPassword.test(password) === false){
+      return setPasswordErr("Password must be 8 to 32 character, one uppercase , one lowercase , one special character and one number . Password must be stronger then prappo .")
+    }
+    else{
+      setPasswordErr('')
+    }
+
     console.log(name , email, photoUrl , password);
 
-    createUser(email,password).then(result=>console.log(result.user)).catch(error=>console.log(error.code)
+    createUser(email,password)
+    .then(result=>
+      userUpdate({displayName : name , photoURL : photoUrl})
+      .then(()=>{
+        setUser({...user,displayName : name , photoURL : photoUrl})
+        navigate('/')
+      })
+      .catch((error)=>{
+        setUser(result.user)
+        console.log(error);
+        
+        
+      })
+    )
+      
+
+    .catch(error=>
+      console.log(error.code)
     )
     
 
+  }
+  const handleShow =()=>{
+    setShow(true)
   }
 
   return (
@@ -41,10 +73,16 @@ const Register = () => {
           <label className="label">Email</label>
           <input type="email" className="input" name='email' required placeholder="Email" />
           <label className="label">Password</label>
-          <input type="password" className="input" name='password' required placeholder="Password" />
+          <div className='flex relative'>
+            <input type={show ? "text" : "password"} className="input" name='password' required placeholder="Password" />
+            <button onClick={handleShow} className='absolute -right-3 top-2'>{show ? <Eye></Eye> : <EyeOffIcon></EyeOffIcon>}</button>
+          </div>
           
           <button type='submit' className="btn btn-neutral mt-4">Login</button>
         </form>
+        {
+          passwordErr && <p className='text-red-600 text-sm'>{passwordErr}</p>
+        }
         <p className='my-3 text-center'>Already have an account? <Link className='text-blue-500 underline' to='/auth/login'>Please Sign in</Link></p>
       </div>
     </div>

@@ -4,14 +4,7 @@ import { Link } from 'react-router';
 
 const NewsDetailsCard = ({ news }) => {
   
-  // 1. Loading State: If news is null or undefined, show a loader or return null
-  // if (!news) {
-  //   return (
-  //     <div className="flex justify-center items-center min-h-screen text-gray-500">
-  //       Loading...
-  //     </div>
-  //   );
-  // }
+ 
 
   // Helper to format the date nicely (Safe version)
   const formatDate = (dateString) => {
