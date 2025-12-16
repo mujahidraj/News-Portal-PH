@@ -3,11 +3,11 @@ import Header from '../../Components/Header/Header';
 import BreakingNews from '../../Components/BreakingNews/BreakingNews';
 import Navbar from '../../Components/Navbar/Navbar';
 import LeftAside from '../../Components/LeftAside/LeftAside';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import RightAside from '../../Components/RightAside/RightAside';
 
 const Home = () => {
-  
+  const {state} = useNavigate()
   return (
     <div>
     
@@ -31,7 +31,10 @@ const Home = () => {
 
       
       <section className='order-1 md:order-2 main-section md:col-span-6'>
-      <Outlet></Outlet>
+     {
+      state == 'loading' ? <span className="loading loading-ring loading-xl"></span> : <Outlet></Outlet>
+ 
+     }
       </section>
 
       

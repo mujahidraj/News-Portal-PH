@@ -5,10 +5,6 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { use } from "react";
 const Navbar = () => {
   const {user , signOutUser} = use(AuthContext)
-console.log(user);
-
-  
-
   const handleSignOut =()=>{
     signOutUser().then(() => {
       alert("Log out Successful.");

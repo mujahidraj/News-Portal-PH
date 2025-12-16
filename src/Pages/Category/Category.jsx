@@ -46,7 +46,7 @@ const Category = () => {
       <h2 className='font-semibold text-lg'>Top News Arround the World</h2>
       <div className='my-3'>
         {
-        categoryNews.map(news=><Suspense fallback={<span className="loading loading-bars loading-xl"></span>}><NewsCard key={news.id} news={news}></NewsCard></Suspense>)
+        categoryNews.map(news=><Suspense key={news.id} fallback={<span className="loading loading-bars loading-xl"></span>}><NewsCard key={news.id} news={news}></NewsCard></Suspense>)
       }
       </div>
     </div>

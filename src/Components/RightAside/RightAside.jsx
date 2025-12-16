@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { use } from 'react';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import FindUs from '../FindUs/FindUs';
 import QZone from '../QZone/QZone';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const RightAside = () => {
+
+  const {user} = use (AuthContext)
+
   return (
     <div>
-      <SocialLogin></SocialLogin>
+      {
+        user ? "" : <SocialLogin></SocialLogin>
+      }
       <FindUs></FindUs>
       <QZone></QZone>
     </div>

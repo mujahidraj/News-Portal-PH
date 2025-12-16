@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import CategoryNews from '../../Pages/CategoryNews/CategoryNews';
+import CategoryNews from '../../Pages/Home/CategoryNews/CategoryNews';
 import TrendingNews from '../TrendingNews/TrendingNews';
 
 const LeftAside = () => {

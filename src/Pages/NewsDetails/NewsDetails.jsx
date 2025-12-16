@@ -26,7 +26,7 @@ const NewsDetails = () => {
         <Header></Header>
         <Navbar></Navbar>
       </header>
-      <main className='w-11/12 mx-auto grid my-10 grid-cols-4'>
+      <main className='w-11/12 mx-auto md:grid my-10 grid grid-cols-1 md:grid-cols-4'>
         <section className='col-span-3'>
           <h2 className='text-lg font-semibold'>News Detail</h2>
          <Suspense fallback={<span className="loading loading-bars loading-xl"></span>}>
