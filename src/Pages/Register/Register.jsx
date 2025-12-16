@@ -31,8 +31,6 @@ const Register = () => {
       setPasswordErr('')
     }
 
-    console.log(name , email, photoUrl , password);
-
     createUser(email,password)
     .then(result=>
       userUpdate({displayName : name , photoURL : photoUrl})
@@ -42,7 +40,7 @@ const Register = () => {
       })
       .catch((error)=>{
         setUser(result.user)
-        console.log(error);
+        error.code
         
         
       })
@@ -50,7 +48,7 @@ const Register = () => {
       
 
     .catch(error=>
-      console.log(error.code)
+      error.code
     )
     
 

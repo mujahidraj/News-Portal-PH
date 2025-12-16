@@ -12,8 +12,9 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     loginUser (email,password).then(result=>{
+      result.user
      alert ("login Success")
-     console.log(result);
+    
      Navigate(`${location.state ? location.state : '/'}`)
     }).catch(error=>{
       setError(error.code)
