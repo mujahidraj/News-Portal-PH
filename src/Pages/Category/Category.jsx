@@ -1,14 +1,14 @@
 
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, use, useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import NewsCard from '../../Components/NewsCard/NewsCard';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Category = () => {
 
   const [categoryNews, setCategoryNews ] = useState([])
   const { id } = useParams()
   const newsData = useLoaderData();
-
 
 
 
@@ -32,6 +32,12 @@ const Category = () => {
    
     
   },[newsData , id])
+
+   const {loading} = use(AuthContext)
+
+  if(loading){
+    return <span className="loading loading-bars loading-xl"></span>
+  }
 
 
 

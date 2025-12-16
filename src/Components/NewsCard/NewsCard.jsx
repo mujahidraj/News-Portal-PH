@@ -1,10 +1,12 @@
 import React, { Suspense } from 'react';
 import { Link } from 'react-router-dom'; // <--- This was missing
 import { FaRegBookmark, FaShareAlt, FaStar, FaStarHalfAlt, FaRegStar, FaEye } from 'react-icons/fa';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const NewsCard = ({ news }) => {
-  const { title, author, rating, total_view, thumbnail_url, details, tags, _id } = news;
+  const { id,title, author, rating, total_view, thumbnail_url, details, tags,  } = news;
 
+ 
   // Utility to render stars dynamically
   const renderStars = (rating) => {
     const stars = [];
@@ -70,7 +72,7 @@ const NewsCard = ({ news }) => {
         
         {/* THIS IS WHERE THE ERROR WAS HAPPENING */}
         <Link 
-          to={`/news/${_id}`} 
+          to={`/news-details/${id}`}
           className="text-orange-500 font-semibold text-sm hover:underline mb-4 inline-block"
         >
           Read More
